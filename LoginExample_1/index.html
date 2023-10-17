@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <script type="text/javascript" src="https://unpkg.com/vue@next" defer></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .login-container {
+            text-align: center;
+            border: 1px solid #ccc;
+            padding: 20px;
+            max-width: 300px;
+            width: 100%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-container h2 {
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .login-btn {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .login-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .login-history {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="login-page">
+        <div class="login-container">
+            <h2>Login</h2>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" v-model="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" v-model="password" required>
+            </div>
+            <button type="submit" class="login-btn" @click="addHistory">Login</button>
+        </div>
+
+        <h3>Login History</h3>
+        <div v-for="item in this.loginHistory" class="login-history">
+            {{item}}
+        </div>
+    </div>
+
+    <script type="text/javascript" src="login-page.js" defer></script>
+</body>
+</html>
