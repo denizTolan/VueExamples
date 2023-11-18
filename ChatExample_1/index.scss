@@ -1,0 +1,127 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.chat-container {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  min-height: 100vh;
+
+  &--blue {
+    background-color: #CCDAE1;
+  }
+
+  > div {
+    border-right: snow;
+    border-right-style: solid;
+    border-right-width: 1px;
+
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  > div:last-child {
+    border-right-style: none;
+  }
+
+  .navigation {
+    display: flex;
+    flex-direction: column;
+    min-width: 5%;
+
+    &__logo {
+      text-align: center;
+    }
+
+    &__bar {
+      display: flex;
+      flex-direction: column;
+      margin-top: 20px;
+      padding: 0 20px 20px 20px;
+      min-height: 90%;
+
+      > div {
+        margin-top: 30px;
+        text-align: center;
+        color:whitesmoke;
+      }
+
+      &--color {
+        background-color: #517071;
+      }
+
+      &--rounded {
+        border-radius: 25px;
+      }
+    }
+  }
+
+  .history {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+
+    > div:first-child {
+      margin-top: 0;
+    }
+
+    > div {
+      margin-top: 20px;
+    }
+
+    &__title {
+      font-weight: bold;
+    }
+
+    &__search-box {
+      background-color: white;
+      padding: 10px;
+      border-radius: 25px;
+      box-sizing: border-box;
+
+      &__input
+      {
+        display: flex;
+        flex-direction: row;
+
+        margin: 0;
+        padding: 0;
+        .icon {
+          padding: 5px;
+        }
+        .input {
+          width: 100%;
+
+          > input {
+            box-sizing: border-box;
+            width: 100%;
+            padding: 5px;
+            border: 0;
+          }
+        }
+      }
+    }
+
+    &__chat-list {
+
+      &__chat-box {
+        display: flex;
+      }
+
+      .title {
+        
+      }
+
+      .picture > img {
+        border-radius: 25px;
+        width: 40px;
+        height: 40px;
+      }
+
+    }
+  }
+}
+

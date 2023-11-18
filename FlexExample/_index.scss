@@ -1,74 +1,44 @@
-body {
-  margin: 0;
-  padding: 0;
-
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  height: 100vh;
-}
-
 .container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+  @include flex-container-row();
+  @include container-modifier($block:'container',$modifier:'left');
+  @include container-modifier($block:'container',$modifier:'right');
+
   width: 85%;
 
-  &__left,
-  &__right {
-    width: 100vw;
-    height: 500px;
-    min-width: 50px;
-  }
-
   &__left {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-
-    &--white {
-      background-color: #ecf6ff;
-    }
+    @include flex-container-row();
+    @include background-color($modifier-name:'white',$color:$login-background-color);
 
     .login {
+      @include flex-container-column();
+      width: 60%;
 
       &__margin {
         margin-top: 20px;
       }
 
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      width: 60%;
-
       .banner {
-         text-align: center;
+        text-align: center;
 
-         &__logo {
+        &__logo {
+          @include background-color($modifier-name:'black',$color:$login-background-color);
+          @include font-size(30px);
+        }
 
-           &--black {
-             color: black;
-           }
+        &__title {
+          font-weight: bold;
+          font-size: 20px;
+        }
 
-           &--size {
-             font-size: 30px;
-           }
-         }
-
-         &__title {
-           font-weight: bold;
-           font-size: 20px;
-         }
-
-         &__desc {
-           font-style: italic;
-           font-size: 10px;
-         }
-       }
+        &__desc {
+          font-style: italic;
+          font-size: 10px;
+        }
+      }
 
       .input-group {
-        display: flex;
-        flex-direction: column;
+        @extend %flex-container-column;
+
         height: 40px;
         justify-content: space-between;
 
@@ -90,13 +60,12 @@ body {
       }
 
       .login-info {
+        @extend %flex-container;
 
-        display: flex;
         justify-content: space-between;
 
-
         &__remember {
-          display: flex;
+          @extend %flex-container;
 
           &__desc {
             padding-top: 4px;
@@ -115,8 +84,9 @@ body {
             font-size: 10px;
           }
 
-         &--black {
-            color: black;
+          @include color($modifier-name:'black',$color:black);
+
+          &--black {
             font-weight: bold;
           }
         }
@@ -136,9 +106,7 @@ body {
           cursor: pointer;
           width: 100%;
 
-          &--black {
-            background-color: black;
-          }
+          @include background-color($modifier-name:'black',$color:black);
 
         }
 
@@ -160,31 +128,26 @@ body {
   }
 
   &__right {
-    background-image: linear-gradient(150deg, #dad7d7, #0e5c0e);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    @include flex-container-column();
+    @include background-image($modifier-name:'mix',$color:$login-right-image);
 
     .link-area {
+      @include flex-container-row();
+
       width: 100%;
-      display: flex;
-      justify-content: center;
       justify-items: center;
       flex-wrap: wrap;
 
       &__link {
-        margin-top: 15px;
+        @extend %flex-container-row;
 
+        margin-top: 15px;
         width: 80%;
-        display: flex;
-        flex-direction: row;
         justify-content: space-between;
         flex-wrap: wrap;
 
         &__logo {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
+          @include flex-container-column();
         }
 
         &__description {
@@ -193,9 +156,7 @@ body {
         }
 
         &__arrow {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
+          @include flex-container-column();
         }
 
         &__line {

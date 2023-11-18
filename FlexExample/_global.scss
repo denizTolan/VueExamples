@@ -1,0 +1,70 @@
+%flex-container  {
+  display: flex;
+}
+
+%flex-container-row{
+  @extend %flex-container;
+
+  flex-direction: row;
+}
+
+%flex-container-column {
+  @extend %flex-container;
+
+  flex-direction: column;
+}
+
+@mixin flex-container-column($alingment:center) {
+  @extend %flex-container-column;
+
+  justify-content: $alingment;
+}
+
+@mixin flex-container-row($alingment: center) {
+  @extend %flex-container-row;
+
+  justify-content: $alingment;
+}
+
+@mixin container-modifier($block,$modifier) {
+  .#{$block}__#{$modifier} {
+
+    width: 100vw;
+    height: 500px;
+    min-width: 50px;
+  }
+}
+
+@mixin background-color($modifier-name,$color) {
+  &--#{$modifier-name} {
+    background-color: $color;
+  }
+}
+
+@mixin background-image($modifier-name,$color) {
+  &--#{$modifier-name} {
+    background-image: $color;
+  }
+}
+
+@mixin font-size($size) {
+  font-size: $size;
+}
+
+@mixin color($modifier-name,$color) {
+  &--#{$modifier-name} {
+    color: $color;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+  font-family: $font-name;
+
+  @include flex-container-row();
+
+  height: 100vh;
+}
+
